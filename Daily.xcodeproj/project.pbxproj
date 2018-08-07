@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E580FDB4211A012300354883 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB3211A012300354883 /* RequestController.swift */; };
+		E580FDB6211A01AE00354883 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB5211A01AE00354883 /* Quote.swift */; };
+		E580FDB9211A2C7000354883 /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB8211A2C6F00354883 /* QuotesTableViewController.swift */; };
+		E580FDBB211A2D4300354883 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDBA211A2D4300354883 /* QuoteTableViewCell.swift */; };
+		E580FDBD211A3FF900354883 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDBC211A3FF900354883 /* TopicsTableViewController.swift */; };
+		E580FDBF211A402700354883 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDBE211A402700354883 /* Topic.swift */; };
+		E580FDC2211A4BEF00354883 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDC1211A4BEF00354883 /* TopicTableViewCell.swift */; };
 		E5DAD2742119F20C0086DF21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAD2732119F20C0086DF21 /* AppDelegate.swift */; };
 		E5DAD2762119F20C0086DF21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAD2752119F20C0086DF21 /* ViewController.swift */; };
 		E5DAD2792119F20C0086DF21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DAD2772119F20C0086DF21 /* Main.storyboard */; };
@@ -26,6 +33,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E57D7D562119FE7C001D789A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		E580FDB3211A012300354883 /* RequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
+		E580FDB5211A01AE00354883 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		E580FDB8211A2C6F00354883 /* QuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTableViewController.swift; sourceTree = "<group>"; };
+		E580FDBA211A2D4300354883 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
+		E580FDBC211A3FF900354883 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
+		E580FDBE211A402700354883 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		E580FDC1211A4BEF00354883 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		E5DAD2702119F20C0086DF21 /* Daily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DAD2732119F20C0086DF21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5DAD2752119F20C0086DF21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,12 +71,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E50464F8211A535F0093D3B9 /* Topics Scene */ = {
+			isa = PBXGroup;
+			children = (
+				E580FDBC211A3FF900354883 /* TopicsTableViewController.swift */,
+				E580FDC1211A4BEF00354883 /* TopicTableViewCell.swift */,
+			);
+			path = "Topics Scene";
+			sourceTree = "<group>";
+		};
+		E57D7D552119FE7C001D789A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E57D7D562119FE7C001D789A /* Kingfisher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E580FDB7211A01B200354883 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E580FDB5211A01AE00354883 /* Quote.swift */,
+				E580FDBE211A402700354883 /* Topic.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E580FDC0211A441200354883 /* Quotes Scene */ = {
+			isa = PBXGroup;
+			children = (
+				E580FDB8211A2C6F00354883 /* QuotesTableViewController.swift */,
+				E580FDBA211A2D4300354883 /* QuoteTableViewCell.swift */,
+			);
+			path = "Quotes Scene";
+			sourceTree = "<group>";
+		};
 		E5DAD2672119F20C0086DF21 = {
 			isa = PBXGroup;
 			children = (
 				E5DAD2722119F20C0086DF21 /* Daily */,
 				E5DAD2872119F20D0086DF21 /* DailyTests */,
 				E5DAD2712119F20C0086DF21 /* Products */,
+				E57D7D552119FE7C001D789A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,7 +130,11 @@
 			children = (
 				E5DAD2732119F20C0086DF21 /* AppDelegate.swift */,
 				E5DAD2752119F20C0086DF21 /* ViewController.swift */,
+				E580FDB7211A01B200354883 /* Models */,
+				E580FDB3211A012300354883 /* RequestController.swift */,
 				E5DAD2772119F20C0086DF21 /* Main.storyboard */,
+				E50464F8211A535F0093D3B9 /* Topics Scene */,
+				E580FDC0211A441200354883 /* Quotes Scene */,
 				E5DAD27A2119F20D0086DF21 /* Assets.xcassets */,
 				E5DAD27C2119F20D0086DF21 /* LaunchScreen.storyboard */,
 				E5DAD27F2119F20D0086DF21 /* Info.plist */,
@@ -106,6 +161,7 @@
 				E5DAD26C2119F20C0086DF21 /* Sources */,
 				E5DAD26D2119F20C0086DF21 /* Frameworks */,
 				E5DAD26E2119F20C0086DF21 /* Resources */,
+				E57D7D5B2119FF99001D789A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -192,13 +248,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E57D7D5B2119FF99001D789A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5DAD26C2119F20C0086DF21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E580FDB9211A2C7000354883 /* QuotesTableViewController.swift in Sources */,
+				E580FDB6211A01AE00354883 /* Quote.swift in Sources */,
+				E580FDBB211A2D4300354883 /* QuoteTableViewCell.swift in Sources */,
+				E580FDB4211A012300354883 /* RequestController.swift in Sources */,
 				E5DAD2762119F20C0086DF21 /* ViewController.swift in Sources */,
+				E580FDBF211A402700354883 /* Topic.swift in Sources */,
 				E5DAD2742119F20C0086DF21 /* AppDelegate.swift in Sources */,
+				E580FDC2211A4BEF00354883 /* TopicTableViewCell.swift in Sources */,
+				E580FDBD211A3FF900354883 /* TopicsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +440,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6V685Y527;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Daily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,6 +462,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6V685Y527;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Daily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
