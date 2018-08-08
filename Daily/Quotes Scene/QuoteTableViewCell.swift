@@ -13,21 +13,9 @@ class QuoteTableViewCell: UITableViewCell {
     
     @IBOutlet weak var quoteImageView: UIImageView!
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-    var quoteImage: UIImage? {
-        didSet {
-            self.quoteImageView.image = quoteImage
-            self.setNeedsLayout()
-            self.layoutIfNeeded()
-        }
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
-        quoteImage = nil
+        self.quoteImageView.image = nil
     }
 }
 
@@ -38,8 +26,9 @@ extension QuoteTableViewCell {
         guard let url = URL(string: quote.media) else {
             return
         }
-        self.quoteImageView.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+        DispatchQueue.main.async { [weak self] in
+            self?.quoteImageView.kf.setImage(with: url, options: [.transition(.fade(0.2))])
+        }
     }
-    
 }
 

@@ -29,7 +29,11 @@ extension TopicTableViewCell {
         guard let url = URL(string: urlString) else {
             return
         }
-        let processor = BlurImageProcessor(blurRadius: 2) >> RoundCornerImageProcessor(cornerRadius: 0)
-        backgroundImageView.kf.setImage(with: url, options: [.transition(.fade(0.2)),.processor(processor)])
+        
+        DispatchQueue.main.async { [weak self] in
+            let processor = BlurImageProcessor(blurRadius: 2) >> RoundCornerImageProcessor(cornerRadius: 0)
+            self?.backgroundImageView.kf.setImage(with: url, options: [.transition(.fade(0.2)),.processor(processor)])
+        }
+        
     }
 }

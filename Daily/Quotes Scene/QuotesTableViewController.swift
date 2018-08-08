@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 class QuotesTableViewController: UITableViewController {
 
-    var requestController = RequestController()
+    private var requestController = RequestController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class QuotesTableViewController: UITableViewController {
        reloadData()
     }
 
-    var quotes = [Quote]() {
+    private var quotes = [Quote]() {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -29,9 +29,14 @@ class QuotesTableViewController: UITableViewController {
 
     var topic: Topic?
     
-    func reloadData() {
-        let topic = self.topic?.title ?? ""
-        title = topic
+}
+
+extension QuotesTableViewController {
+    private func reloadData() {
+        guard let topic = self.topic else {
+            return
+        }
+        title = topic.title
         requestController.requestQuotes(maximumResultCount: 20, imageSize: .large, topic: topic) { error, quotes in
             guard error == nil else {
                 return
@@ -58,5 +63,19 @@ extension QuotesTableViewController {
         let quote = quotes[indexPath.row]
         cell.configure(with: quote, at: indexPath)
         return cell
+    }
+}
+
+extension QuotesTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let shareText = "I thought you might like this! Shared from the Inspiration Daily App. Download at http://derekbertubin.com"
+        let cell = tableView.cellForRow(at: indexPath) as! QuoteTableViewCell
+        
+        guard let image = cell.quoteImageView.image else {
+            return
+        }
+        
+        let vc = UIActivityViewController(activityItems: [shareText, image], applicationActivities: [])
+        present(vc, animated: true)
     }
 }
