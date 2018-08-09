@@ -115,7 +115,7 @@
             </objects>
             <point key="canvasLocation" x="2240.8000000000002" y="99.400299850074973"/>
         </scene>
-        <!--QoD View Controller-->
+        <!--Quote of the Day-->
         <scene sceneID="5pD-17-SZY">
             <objects>
                 <viewController storyboardIdentifier="QoDViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7D1-kk-8i8" customClass="QoDViewController" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,15 +123,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGj-TA-mms">
-                                <rect key="frame" x="0.0" y="-98" width="375" height="716"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vWd-zP-62E">
                                 <rect key="frame" x="0.0" y="-48" width="375" height="666"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoO-4e-Vpj">
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGj-TA-mms">
+                                <rect key="frame" x="0.0" y="-98" width="375" height="716"/>
+                                <color key="backgroundColor" red="0.39990151036588639" green="0.39990151036588639" blue="0.39990151036588639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HoO-4e-Vpj">
                                 <rect key="frame" x="187" y="61" width="0.0" height="507"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="507" id="QC0-HD-T6E"/>
@@ -207,7 +207,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9bS-hX-xRK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="FMG-Nx-cpA"/>
+                    <tabBarItem key="tabBarItem" title="Quote of the Day" image="quote" id="FMG-Nx-cpA">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="backgroundImageView" destination="vWd-zP-62E" id="RTt-RI-Ne5"/>
                         <outlet property="quoteLabel" destination="HoO-4e-Vpj" id="BMy-Gs-vYm"/>
@@ -284,6 +286,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -325,6 +328,7 @@
     <resources>
         <image name="more" width="379" height="380"/>
         <image name="next" width="391" height="336"/>
+        <image name="quote" width="25" height="25"/>
         <image name="speaker" width="388" height="301"/>
     </resources>
 </document>

@@ -17,19 +17,23 @@ class QoDViewController: UIViewController, RequestControllerRequired {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var speakerButton: UIButton!
     
+    let speechSynthesizer = AVSpeechSynthesizer()
+
     var placeholderImage: Placeholder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        speakerButton.isSelected = false
-        speakerButton.tintColor = speakerButton.isSelected ? .white : .gray
+        speakerButton.isSelected = true
+        onShare(speakerButton)
         reloadData()
     }
     
-    var quote: ForismaticQuote?
+    var quote: TSSQuote?
     
     private func reloadData() {
-        requestController.requestForismaticQuote() { [weak self] error, quote in
+        
+        let parameters = TTSQODEndpointParameters(category: "inspire")
+        requestController.requestTSSQuote(with: parameters) { [weak self] error, quote in
             
             self?.quote = quote
         
@@ -44,7 +48,6 @@ class QoDViewController: UIViewController, RequestControllerRequired {
                 }
                 
                 let processor = BlurImageProcessor(blurRadius: 4) >> RoundCornerImageProcessor(cornerRadius: 0)
-               
                 let image = self?.placeholderImage ?? UIImage()
                 
                 let options: KingfisherOptionsInfo = [.forceRefresh,.transition(.fade(0.2)),.processor(processor)]
@@ -60,9 +63,7 @@ class QoDViewController: UIViewController, RequestControllerRequired {
                     self?.speak(quote: quote)
                 }
             }
-            
         }
-        
     }
     
     @IBAction func onShare(_ sender: UIButton) {
@@ -71,9 +72,12 @@ class QoDViewController: UIViewController, RequestControllerRequired {
         try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         try? AVAudioSession.sharedInstance().setActive(sender.isSelected)
         
-        sender.tintColor = sender.isSelected ? .white : .gray
+        sender.tintColor = sender.isSelected ? .white : .lightGray
         
         guard sender.isSelected else {
+            if speechSynthesizer.isSpeaking {
+                speechSynthesizer.stopSpeaking(at: .immediate)
+            }
             return
         }
         
@@ -85,41 +89,44 @@ class QoDViewController: UIViewController, RequestControllerRequired {
         
     }
     
-    private func speak(quote: ForismaticQuote?) {
+    private func speak(quote: TSSQuote?) {
+        
+        if speechSynthesizer.isSpeaking {
+            speechSynthesizer.stopSpeaking(at: .word)
+        }
         
         guard speakerButton.isSelected else {
             return
         }
         
-        let quoteAndAuthorText = "\(quote?.quoteText ?? "") \(quote?.quoteAuthor ?? "")"
+        let quoteAndAuthorText = "\(quote?.quote ?? "") \(quote?.author ?? "")"
         
         let string = quoteAndAuthorText
-        let synth = AVSpeechSynthesizer()
         let utterance = AVSpeechUtterance(string: string)
-        synth.speak(utterance)
+        speechSynthesizer.speak(utterance)
     }
     
     
-    @IBAction func onNext(_ sender: Any) {
+    @IBAction func onNext(_ sender: UIButton) {
+        sender.isUserInteractionEnabled = false
         reloadData()
+        sender.isUserInteractionEnabled = true
+
     }
     
-    
-    func attributedString(from quote: ForismaticQuote?) -> NSAttributedString {
+    func attributedString(from quote: TSSQuote?) -> NSAttributedString {
         let attributes = [
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: 34, weight: .bold)
         ]
-        let quoteText = quote?.quoteText ?? ""
+        let quoteText = quote?.quote ?? ""
         let mutableAttributedString = NSMutableAttributedString(string: quoteText, attributes: attributes)
         
-        let authorText = "\n-\(quote?.quoteAuthor ?? "Unknown")"
+        let authorText = "\n-\(quote?.author ?? "Unknown")"
         let authorAttributes = [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 26)
         ]
         let authorAttributedString = NSAttributedString(string: authorText, attributes: authorAttributes)
-        
         mutableAttributedString.append(authorAttributedString)
-        
         return mutableAttributedString
     }
 }

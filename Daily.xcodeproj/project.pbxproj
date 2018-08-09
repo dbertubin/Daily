@@ -21,6 +21,9 @@
 		E5046515211AA30A0093D3B9 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57D7D562119FE7C001D789A /* Kingfisher.framework */; };
 		E5046517211AA3150093D3B9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5046516211AA3150093D3B9 /* AVFoundation.framework */; };
 		E5046519211AAA500093D3B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5046518211AAA500093D3B9 /* Assets.xcassets */; };
+		E504651B211BECC40093D3B9 /* TTSQODEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504651A211BECC40093D3B9 /* TTSQODEndpoint.swift */; };
+		E504651D211BEF920093D3B9 /* TSSQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504651C211BEF920093D3B9 /* TSSQuote.swift */; };
+		E504651F211BF1C30093D3B9 /* TSSQuoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504651E211BF1C30093D3B9 /* TSSQuoteResponse.swift */; };
 		E580FDB4211A012300354883 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB3211A012300354883 /* RequestController.swift */; };
 		E580FDB6211A01AE00354883 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB5211A01AE00354883 /* Quote.swift */; };
 		E580FDB9211A2C7000354883 /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB8211A2C6F00354883 /* QuotesTableViewController.swift */; };
@@ -58,6 +61,9 @@
 		E5046512211A8F2A0093D3B9 /* QoDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QoDViewController.swift; sourceTree = "<group>"; };
 		E5046516211AA3150093D3B9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E5046518211AAA500093D3B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E504651A211BECC40093D3B9 /* TTSQODEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSQODEndpoint.swift; sourceTree = "<group>"; };
+		E504651C211BEF920093D3B9 /* TSSQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSQuote.swift; sourceTree = "<group>"; };
+		E504651E211BF1C30093D3B9 /* TSSQuoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSQuoteResponse.swift; sourceTree = "<group>"; };
 		E57D7D562119FE7C001D789A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		E580FDB3211A012300354883 /* RequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
 		E580FDB5211A01AE00354883 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 				E5046500211A8ABC0093D3B9 /* QuotesEndpoint.swift */,
 				E5046502211A8AE20093D3B9 /* TopicsEndpoint.swift */,
 				E5046507211A8B680093D3B9 /* ForismaticEndpoint.swift */,
+				E504651A211BECC40093D3B9 /* TTSQODEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -153,12 +160,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E5046514211A9FE10093D3B9 /* QoS Scene */ = {
+		E5046514211A9FE10093D3B9 /* QoD Scene */ = {
 			isa = PBXGroup;
 			children = (
 				E5046512211A8F2A0093D3B9 /* QoDViewController.swift */,
 			);
-			path = "QoS Scene";
+			path = "QoD Scene";
 			sourceTree = "<group>";
 		};
 		E57D7D552119FE7C001D789A /* Frameworks */ = {
@@ -176,6 +183,8 @@
 				E580FDB5211A01AE00354883 /* Quote.swift */,
 				E580FDBE211A402700354883 /* Topic.swift */,
 				E5046510211A8CE80093D3B9 /* ForismaticQuote.swift */,
+				E504651C211BEF920093D3B9 /* TSSQuote.swift */,
+				E504651E211BF1C30093D3B9 /* TSSQuoteResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,7 +224,7 @@
 				E5DAD2772119F20C0086DF21 /* Main.storyboard */,
 				E580FDB7211A01B200354883 /* Models */,
 				E50464FC211A79720093D3B9 /* Networking */,
-				E5046514211A9FE10093D3B9 /* QoS Scene */,
+				E5046514211A9FE10093D3B9 /* QoD Scene */,
 				E50464FB211A795F0093D3B9 /* Daily Scene */,
 				E50464F8211A535F0093D3B9 /* Topics Scene */,
 				E580FDC0211A441200354883 /* Quotes Scene */,
@@ -368,11 +377,14 @@
 				E580FDBF211A402700354883 /* Topic.swift in Sources */,
 				E5046508211A8B680093D3B9 /* ForismaticEndpoint.swift in Sources */,
 				E5046503211A8AE20093D3B9 /* TopicsEndpoint.swift in Sources */,
+				E504651F211BF1C30093D3B9 /* TSSQuoteResponse.swift in Sources */,
 				E5046501211A8ABC0093D3B9 /* QuotesEndpoint.swift in Sources */,
+				E504651D211BEF920093D3B9 /* TSSQuote.swift in Sources */,
 				E5DAD2742119F20C0086DF21 /* AppDelegate.swift in Sources */,
 				E50464FE211A8A730093D3B9 /* Request.swift in Sources */,
 				E580FDC2211A4BEF00354883 /* TopicTableViewCell.swift in Sources */,
 				E580FDBD211A3FF900354883 /* TopicsTableViewController.swift in Sources */,
+				E504651B211BECC40093D3B9 /* TTSQODEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

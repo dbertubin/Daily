@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "filename" : "speaker-1.pdf"
+      "filename" : "quote.pdf"
     }
   ],
   "info" : {
@@ -10,7 +10,6 @@
     "author" : "xcode"
   },
   "properties" : {
-    "template-rendering-intent" : "template",
-    "preserves-vector-representation" : true
+    "template-rendering-intent" : "template"
   }
 }

@@ -115,6 +115,42 @@ extension RequestController {
     }
 }
 
+extension RequestController {
+    func requestTSSQuote(with parameters: TTSQODEndpointParameters? = nil, completion: @escaping (_ error: Error?, _ quote: TSSQuote?) -> Void) {
+        
+        let tssRequest = Request(for: TTSQODEndpoint(parameters: parameters))
+        
+        request(tssRequest) { error, data in
+            guard error == nil else {
+                completion(error, nil)
+                return
+            }
+            guard let data = data else {
+                completion(nil, nil)
+                return
+            }
+            
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                return
+            }
+            
+            guard let contentsJson = json?["contents"] else {
+                return
+            }
+            guard let contentsData = try? JSONSerialization.data(withJSONObject: contentsJson as Any, options: []) as Data else {
+                return
+            }
+            
+            guard let response = try? JSONDecoder().decode(TSSQuote.self, from: contentsData) else {
+                print("Error: Couldn't decode data into Blog")
+                return
+            }
+            completion(nil, response)
+        }
+    }
+}
+
+
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -128,6 +164,7 @@ struct HTTPHeaders {
         var payload = [String:String]()
         payload["X-Mashape-Key"] = "DygPGe0RjdmshwY1r1AGm4zfT5edp1MpZuRjsnZgC1npPFT9zc"
         payload["Accept"] = "application/json"
+        payload["X-TheySaidSo-Api-Secret"] = "_vYeAJPnTbQxoJVsO6s3lgeF"
         return payload
     }
 }
