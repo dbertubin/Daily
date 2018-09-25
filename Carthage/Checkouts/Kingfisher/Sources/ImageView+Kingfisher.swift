@@ -67,12 +67,8 @@ extension Kingfisher where Base: ImageView {
             return .empty
         }
         
-       
-        DispatchQueue.main.async {
-            var options = KingfisherManager.shared.defaultOptions + (options ?? KingfisherEmptyOptionsInfo)
-            let noImageOrPlaceholderSet = base.image == nil && self.placeholder == nil
-        }
-        
+        var options = KingfisherManager.shared.defaultOptions + (options ?? KingfisherEmptyOptionsInfo)
+        let noImageOrPlaceholderSet = base.image == nil && self.placeholder == nil
         
         if !options.keepCurrentImageWhileLoading || noImageOrPlaceholderSet { // Always set placeholder while there is no image/placehoer yet.
             self.placeholder = placeholder
@@ -246,19 +242,16 @@ extension Kingfisher where Base: ImageView {
         }
         
         set {
-            DispatchQueue.main.async {
-                if let previousPlaceholder = placeholder {
-                    previousPlaceholder.remove(from: base)
-                }
-                
-                if let newPlaceholder = newValue {
-                    newPlaceholder.add(to: base)
-                } else {
-                    DispatchQueue.main.async {
-                        base.image = nil
-                    }
-                }
+            if let previousPlaceholder = placeholder {
+                previousPlaceholder.remove(from: base)
             }
+            
+            if let newPlaceholder = newValue {
+                newPlaceholder.add(to: base)
+            } else {
+                base.image = nil
+            }
+            
             objc_setAssociatedObject(base, &placeholderKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }

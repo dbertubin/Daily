@@ -15,8 +15,10 @@ struct Request {
     }
     func urlRequest() -> URLRequest? {
         guard let url = endpoint.url else {
+            //FIXME: Throw here
             return nil
         }
+        print(url.absoluteURL)
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.headers.payload

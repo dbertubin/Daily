@@ -17,4 +17,4 @@ struct TopicsEndpoint: Endpoint {
     init() {
         url = URL(string: baseURL + path)
     }
-}
+}   

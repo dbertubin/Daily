@@ -1,28 +1,20 @@
 //
-//  Quote.swift
+//  TSSQuote.swift
 //  Daily
 //
-//  Created by Derek Bertubin on 8/7/18.
+//  Created by Derek Bertubin on 8/8/18.
 //  Copyright © 2018 Derek Bertubin. All rights reserved.
 //
 
 import Foundation
 
-struct Quote: Decodable {
+struct Quote: Codable {
     
-    var identifier: String
-    var title: String
+    var quote: String
     var author: String
-    var url: String
-    var media: String
-    var categoryName: String
     
     enum CodingKeys : String, CodingKey {
-        case title
+        case quote
         case author
-        case url
-        case media
-        case categoryName = "cat"
-        case identifier = "id"
     }
 }

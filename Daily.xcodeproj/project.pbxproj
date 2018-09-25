@@ -7,34 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E50464FA211A78E90093D3B9 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50464F9211A78E90093D3B9 /* DailyViewController.swift */; };
 		E50464FE211A8A730093D3B9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50464FD211A8A730093D3B9 /* Request.swift */; };
-		E5046501211A8ABC0093D3B9 /* QuotesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5046500211A8ABC0093D3B9 /* QuotesEndpoint.swift */; };
-		E5046503211A8AE20093D3B9 /* TopicsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5046502211A8AE20093D3B9 /* TopicsEndpoint.swift */; };
 		E5046506211A8B450093D3B9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5046505211A8B450093D3B9 /* Endpoint.swift */; };
-		E5046508211A8B680093D3B9 /* ForismaticEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5046507211A8B680093D3B9 /* ForismaticEndpoint.swift */; };
 		E504650A211A8BAB0093D3B9 /* URL+applyingParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5046509211A8BAB0093D3B9 /* URL+applyingParameters.swift */; };
 		E504650D211A8BE30093D3B9 /* URLQueryParameterStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504650C211A8BE30093D3B9 /* URLQueryParameterStringConvertible.swift */; };
 		E504650F211A8C160093D3B9 /* Dictionary+URLQueryParameterStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504650E211A8C160093D3B9 /* Dictionary+URLQueryParameterStringConvertible.swift */; };
-		E5046511211A8CE80093D3B9 /* ForismaticQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5046510211A8CE80093D3B9 /* ForismaticQuote.swift */; };
-		E5046513211A8F2A0093D3B9 /* QoDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5046512211A8F2A0093D3B9 /* QoDViewController.swift */; };
+		E5046513211A8F2A0093D3B9 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5046512211A8F2A0093D3B9 /* QuoteViewController.swift */; };
 		E5046515211AA30A0093D3B9 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57D7D562119FE7C001D789A /* Kingfisher.framework */; };
 		E5046517211AA3150093D3B9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5046516211AA3150093D3B9 /* AVFoundation.framework */; };
 		E5046519211AAA500093D3B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5046518211AAA500093D3B9 /* Assets.xcassets */; };
-		E504651B211BECC40093D3B9 /* TTSQODEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504651A211BECC40093D3B9 /* TTSQODEndpoint.swift */; };
-		E504651D211BEF920093D3B9 /* TSSQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504651C211BEF920093D3B9 /* TSSQuote.swift */; };
-		E504651F211BF1C30093D3B9 /* TSSQuoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504651E211BF1C30093D3B9 /* TSSQuoteResponse.swift */; };
+		E504651B211BECC40093D3B9 /* QuoteEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504651A211BECC40093D3B9 /* QuoteEndpoint.swift */; };
 		E580FDB4211A012300354883 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB3211A012300354883 /* RequestController.swift */; };
-		E580FDB6211A01AE00354883 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB5211A01AE00354883 /* Quote.swift */; };
 		E580FDB9211A2C7000354883 /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDB8211A2C6F00354883 /* QuotesTableViewController.swift */; };
 		E580FDBB211A2D4300354883 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDBA211A2D4300354883 /* QuoteTableViewCell.swift */; };
-		E580FDBD211A3FF900354883 /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDBC211A3FF900354883 /* TopicsTableViewController.swift */; };
-		E580FDBF211A402700354883 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDBE211A402700354883 /* Topic.swift */; };
-		E580FDC2211A4BEF00354883 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDC1211A4BEF00354883 /* TopicTableViewCell.swift */; };
+		E580FDBD211A3FF900354883 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDBC211A3FF900354883 /* CategoriesTableViewController.swift */; };
+		E580FDC2211A4BEF00354883 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580FDC1211A4BEF00354883 /* CategoryTableViewCell.swift */; };
 		E5DAD2742119F20C0086DF21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAD2732119F20C0086DF21 /* AppDelegate.swift */; };
 		E5DAD2792119F20C0086DF21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DAD2772119F20C0086DF21 /* Main.storyboard */; };
 		E5DAD27E2119F20D0086DF21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DAD27C2119F20D0086DF21 /* LaunchScreen.storyboard */; };
 		E5DAD2892119F20D0086DF21 /* DailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DAD2882119F20D0086DF21 /* DailyTests.swift */; };
+		E5DD2C64211D19360019D43C /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2C63211D19360019D43C /* Quote.swift */; };
+		E5DD2C66211D19960019D43C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2C65211D19960019D43C /* Category.swift */; };
+		E5DD2C68211D27AD0019D43C /* CategoryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD2C67211D27AD0019D43C /* CategoryEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,30 +42,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E50464F9211A78E90093D3B9 /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
 		E50464FD211A8A730093D3B9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		E5046500211A8ABC0093D3B9 /* QuotesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesEndpoint.swift; sourceTree = "<group>"; };
-		E5046502211A8AE20093D3B9 /* TopicsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsEndpoint.swift; sourceTree = "<group>"; };
 		E5046505211A8B450093D3B9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		E5046507211A8B680093D3B9 /* ForismaticEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForismaticEndpoint.swift; sourceTree = "<group>"; };
 		E5046509211A8BAB0093D3B9 /* URL+applyingParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+applyingParameters.swift"; sourceTree = "<group>"; };
 		E504650C211A8BE30093D3B9 /* URLQueryParameterStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryParameterStringConvertible.swift; sourceTree = "<group>"; };
 		E504650E211A8C160093D3B9 /* Dictionary+URLQueryParameterStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+URLQueryParameterStringConvertible.swift"; sourceTree = "<group>"; };
-		E5046510211A8CE80093D3B9 /* ForismaticQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForismaticQuote.swift; sourceTree = "<group>"; };
-		E5046512211A8F2A0093D3B9 /* QoDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QoDViewController.swift; sourceTree = "<group>"; };
+		E5046512211A8F2A0093D3B9 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		E5046516211AA3150093D3B9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E5046518211AAA500093D3B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E504651A211BECC40093D3B9 /* TTSQODEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSQODEndpoint.swift; sourceTree = "<group>"; };
-		E504651C211BEF920093D3B9 /* TSSQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSQuote.swift; sourceTree = "<group>"; };
-		E504651E211BF1C30093D3B9 /* TSSQuoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSQuoteResponse.swift; sourceTree = "<group>"; };
+		E504651A211BECC40093D3B9 /* QuoteEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEndpoint.swift; sourceTree = "<group>"; };
 		E57D7D562119FE7C001D789A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		E580FDB3211A012300354883 /* RequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
-		E580FDB5211A01AE00354883 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		E580FDB8211A2C6F00354883 /* QuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTableViewController.swift; sourceTree = "<group>"; };
 		E580FDBA211A2D4300354883 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
-		E580FDBC211A3FF900354883 /* TopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
-		E580FDBE211A402700354883 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
-		E580FDC1211A4BEF00354883 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
+		E580FDBC211A3FF900354883 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		E580FDC1211A4BEF00354883 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		E5DAD2702119F20C0086DF21 /* Daily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DAD2732119F20C0086DF21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5DAD2782119F20C0086DF21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +65,9 @@
 		E5DAD2842119F20D0086DF21 /* DailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DAD2882119F20D0086DF21 /* DailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTests.swift; sourceTree = "<group>"; };
 		E5DAD28A2119F20D0086DF21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5DD2C63211D19360019D43C /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		E5DD2C65211D19960019D43C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E5DD2C67211D27AD0019D43C /* CategoryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +93,8 @@
 		E50464F8211A535F0093D3B9 /* Topics Scene */ = {
 			isa = PBXGroup;
 			children = (
-				E580FDBC211A3FF900354883 /* TopicsTableViewController.swift */,
-				E580FDC1211A4BEF00354883 /* TopicTableViewCell.swift */,
+				E580FDBC211A3FF900354883 /* CategoriesTableViewController.swift */,
+				E580FDC1211A4BEF00354883 /* CategoryTableViewCell.swift */,
 			);
 			path = "Topics Scene";
 			sourceTree = "<group>";
@@ -114,7 +102,6 @@
 		E50464FB211A795F0093D3B9 /* Daily Scene */ = {
 			isa = PBXGroup;
 			children = (
-				E50464F9211A78E90093D3B9 /* DailyViewController.swift */,
 			);
 			path = "Daily Scene";
 			sourceTree = "<group>";
@@ -134,10 +121,8 @@
 		E50464FF211A8A9F0093D3B9 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
-				E5046500211A8ABC0093D3B9 /* QuotesEndpoint.swift */,
-				E5046502211A8AE20093D3B9 /* TopicsEndpoint.swift */,
-				E5046507211A8B680093D3B9 /* ForismaticEndpoint.swift */,
-				E504651A211BECC40093D3B9 /* TTSQODEndpoint.swift */,
+				E504651A211BECC40093D3B9 /* QuoteEndpoint.swift */,
+				E5DD2C67211D27AD0019D43C /* CategoryEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -163,7 +148,7 @@
 		E5046514211A9FE10093D3B9 /* QoD Scene */ = {
 			isa = PBXGroup;
 			children = (
-				E5046512211A8F2A0093D3B9 /* QoDViewController.swift */,
+				E5046512211A8F2A0093D3B9 /* QuoteViewController.swift */,
 			);
 			path = "QoD Scene";
 			sourceTree = "<group>";
@@ -180,11 +165,8 @@
 		E580FDB7211A01B200354883 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E580FDB5211A01AE00354883 /* Quote.swift */,
-				E580FDBE211A402700354883 /* Topic.swift */,
-				E5046510211A8CE80093D3B9 /* ForismaticQuote.swift */,
-				E504651C211BEF920093D3B9 /* TSSQuote.swift */,
-				E504651E211BF1C30093D3B9 /* TSSQuoteResponse.swift */,
+				E5DD2C63211D19360019D43C /* Quote.swift */,
+				E5DD2C65211D19960019D43C /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,28 +345,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5DD2C68211D27AD0019D43C /* CategoryEndpoint.swift in Sources */,
 				E580FDB9211A2C7000354883 /* QuotesTableViewController.swift in Sources */,
 				E504650D211A8BE30093D3B9 /* URLQueryParameterStringConvertible.swift in Sources */,
-				E580FDB6211A01AE00354883 /* Quote.swift in Sources */,
-				E5046513211A8F2A0093D3B9 /* QoDViewController.swift in Sources */,
-				E5046511211A8CE80093D3B9 /* ForismaticQuote.swift in Sources */,
-				E50464FA211A78E90093D3B9 /* DailyViewController.swift in Sources */,
+				E5046513211A8F2A0093D3B9 /* QuoteViewController.swift in Sources */,
 				E5046506211A8B450093D3B9 /* Endpoint.swift in Sources */,
 				E504650F211A8C160093D3B9 /* Dictionary+URLQueryParameterStringConvertible.swift in Sources */,
 				E504650A211A8BAB0093D3B9 /* URL+applyingParameters.swift in Sources */,
 				E580FDBB211A2D4300354883 /* QuoteTableViewCell.swift in Sources */,
 				E580FDB4211A012300354883 /* RequestController.swift in Sources */,
-				E580FDBF211A402700354883 /* Topic.swift in Sources */,
-				E5046508211A8B680093D3B9 /* ForismaticEndpoint.swift in Sources */,
-				E5046503211A8AE20093D3B9 /* TopicsEndpoint.swift in Sources */,
-				E504651F211BF1C30093D3B9 /* TSSQuoteResponse.swift in Sources */,
-				E5046501211A8ABC0093D3B9 /* QuotesEndpoint.swift in Sources */,
-				E504651D211BEF920093D3B9 /* TSSQuote.swift in Sources */,
+				E5DD2C64211D19360019D43C /* Quote.swift in Sources */,
+				E5DD2C66211D19960019D43C /* Category.swift in Sources */,
 				E5DAD2742119F20C0086DF21 /* AppDelegate.swift in Sources */,
 				E50464FE211A8A730093D3B9 /* Request.swift in Sources */,
-				E580FDC2211A4BEF00354883 /* TopicTableViewCell.swift in Sources */,
-				E580FDBD211A3FF900354883 /* TopicsTableViewController.swift in Sources */,
-				E504651B211BECC40093D3B9 /* TTSQODEndpoint.swift in Sources */,
+				E580FDC2211A4BEF00354883 /* CategoryTableViewCell.swift in Sources */,
+				E580FDBD211A3FF900354883 /* CategoriesTableViewController.swift in Sources */,
+				E504651B211BECC40093D3B9 /* QuoteEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.petrockz.Daily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -580,7 +556,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.petrockz.Daily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -48,77 +48,9 @@ class RequestController {
 }
 
 extension RequestController {
-    func requestQuotes(maximumResultCount: Int, imageSize: QuotesEndpointParameters.ImageSize, topic: Topic? = nil, completion: @escaping (_ error: Error?, _ quotes: [Quote]?) -> Void)  {
+    func requestQuote(with parameters: QuoteEndpointParameters? = nil, completion: @escaping (_ error: Error?, _ quote: Quote?) -> Void) {
         
-        let endpointParameters = QuotesEndpointParameters(maximumResultCount: maximumResultCount, imageSize: imageSize, topic: topic?.title)
-        let quotesEndPoint = QuotesEndpoint(parameters: endpointParameters)
-        let quotesRequest = Request(for: quotesEndPoint)
-        request(quotesRequest) { error, data in
-            guard error == nil else {
-                completion(error, nil)
-                return
-            }
-            guard let data = data else {
-                completion(nil, nil)
-                return
-            }
-            guard let quotes = try? JSONDecoder().decode([Quote].self, from: data) else {
-                print("Error: Couldn't decode data into Blog")
-                return
-            }
-            completion(nil, quotes)
-        }
-    }
-}
-
-extension RequestController {
-    func requestTopics(completion: @escaping (_ error: Error?, _ topics: [Topic]?) -> Void)  {
-        let topicsEndpoint = TopicsEndpoint()
-        let topicsRequest = Request(for: topicsEndpoint)
-        request(topicsRequest) { error, data in
-            guard error == nil else {
-                completion(error, nil)
-                return
-            }
-            guard let data = data else {
-                completion(nil, nil)
-                return
-            }
-            guard let topics = try? JSONDecoder().decode([Topic].self, from: data) else {
-                print("Error: Couldn't decode data into Blog")
-                return
-            }
-            completion(nil, topics)
-        }
-    }
-}
-
-extension RequestController {
-    func requestForismaticQuote(completion: @escaping (_ error: Error?, _ quote: ForismaticQuote?) -> Void) {
-        let forismaticRequest = Request(for: ForismaticEndpoint())
-    
-        request(forismaticRequest) { error, data in
-            guard error == nil else {
-                completion(error, nil)
-                return
-            }
-            guard let data = data else {
-                completion(nil, nil)
-                return
-            }
-            guard let quote = try? JSONDecoder().decode(ForismaticQuote.self, from: data) else {
-                print("Error: Couldn't decode data into Blog")
-                return
-            }
-            completion(nil, quote)
-        }
-    }
-}
-
-extension RequestController {
-    func requestTSSQuote(with parameters: TTSQODEndpointParameters? = nil, completion: @escaping (_ error: Error?, _ quote: TSSQuote?) -> Void) {
-        
-        let tssRequest = Request(for: TTSQODEndpoint(parameters: parameters))
+        let tssRequest = Request(for: QuoteEndpoint(parameters: parameters))
         
         request(tssRequest) { error, data in
             guard error == nil else {
@@ -141,10 +73,47 @@ extension RequestController {
                 return
             }
             
-            guard let response = try? JSONDecoder().decode(TSSQuote.self, from: contentsData) else {
+            guard let response = try? JSONDecoder().decode(Quote.self, from: contentsData) else {
                 print("Error: Couldn't decode data into Blog")
                 return
             }
+            completion(nil, response)
+        }
+    }
+}
+
+extension RequestController {
+    func requestCategories(with parameters: CategoryEndpointParameters? = nil, completion: @escaping (_ error: Error?, _ categories: [Category]?) -> Void) {
+        
+        let tssRequest = Request(for: CategoryEndpoint(parameters: parameters))
+        
+        request(tssRequest) { error, data in
+            guard error == nil else {
+                completion(error, nil)
+                return
+            }
+            guard let data = data else {
+                completion(nil, nil)
+                return
+            }
+            
+            // This goes in a parser  
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                return
+            }
+            
+            guard let contentsJson = json?["contents"] as? [String: Any] else {
+                return
+            }
+            
+            guard let categoryJson = contentsJson["categories"] as? [String: String] else {
+                return
+            }
+            
+            let response = categoryJson.map { key, value in
+                Category(key: key, value: value)
+            }
+            
             completion(nil, response)
         }
     }

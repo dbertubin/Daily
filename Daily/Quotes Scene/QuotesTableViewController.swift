@@ -27,7 +27,7 @@ class QuotesTableViewController: UITableViewController {
         }
     }
 
-    var topic: Topic?
+    var topic: Category?
     
 }
 
@@ -36,15 +36,8 @@ extension QuotesTableViewController {
         guard let topic = self.topic else {
             return
         }
-        title = topic.title
-        requestController.requestQuotes(maximumResultCount: 20, imageSize: .large, topic: topic) { error, quotes in
-            guard error == nil else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.quotes = quotes ?? [Quote]()
-            }
-        }
+        title = topic.value
+        
     }
 }
 

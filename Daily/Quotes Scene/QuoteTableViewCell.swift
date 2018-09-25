@@ -23,7 +23,8 @@ extension QuoteTableViewCell {
     
     func configure(with quote: Quote, at indexPath: IndexPath){
         
-        guard let url = URL(string: quote.media) else {
+        let urlString = "https://loremflickr.com/320/240/\("inspire")"
+        guard let url = URL(string: urlString) else {
             return
         }
         DispatchQueue.main.async { [weak self] in
