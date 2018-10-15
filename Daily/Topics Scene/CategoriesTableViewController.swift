@@ -16,7 +16,7 @@ class CategoriesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 375
-        tableView.rowHeight = UITableViewAutomaticDimension;
+        tableView.rowHeight = UITableView.automaticDimension;
     }
     
     override func viewWillAppear(_ animated: Bool) {

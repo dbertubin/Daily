@@ -99,13 +99,6 @@
 			path = "Topics Scene";
 			sourceTree = "<group>";
 		};
-		E50464FB211A795F0093D3B9 /* Daily Scene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Daily Scene";
-			sourceTree = "<group>";
-		};
 		E50464FC211A79720093D3B9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +200,6 @@
 				E580FDB7211A01B200354883 /* Models */,
 				E50464FC211A79720093D3B9 /* Networking */,
 				E5046514211A9FE10093D3B9 /* QoD Scene */,
-				E50464FB211A795F0093D3B9 /* Daily Scene */,
 				E50464F8211A535F0093D3B9 /* Topics Scene */,
 				E580FDC0211A441200354883 /* Quotes Scene */,
 				E5046518211AAA500093D3B9 /* Assets.xcassets */,
@@ -277,9 +269,11 @@
 				TargetAttributes = {
 					E5DAD26F2119F20C0086DF21 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					E5DAD2832119F20D0086DF21 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = E5DAD26F2119F20C0086DF21;
 					};
 				};
@@ -533,7 +527,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.petrockz.Daily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -555,7 +549,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.petrockz.Daily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -575,7 +569,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.petrockz.DailyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daily.app/Daily";
 			};
@@ -596,7 +590,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.petrockz.DailyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daily.app/Daily";
 			};

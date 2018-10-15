@@ -74,7 +74,7 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
     @IBAction func onShare(_ sender: UIButton) {
         sender.isSelected = sender.isSelected == false ? true : false
         
-        try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        try? AVAudioSession.sharedInstance().setCategory(convertFromAVAudioSessionCategory(AVAudioSession.Category.playback))
         try? AVAudioSession.sharedInstance().setActive(sender.isSelected)
         
         sender.tintColor = sender.isSelected ? .white : .lightGray
@@ -127,15 +127,15 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
         quoteAndAuthorText = "\(quote?.author ?? "") once said...\(quote?.quote ?? "")."
 
         let quoteAttributes = [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 34, weight: .bold),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 34, weight: .bold),
             ]
         
         let authorAttributes = [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 26, weight: .medium)
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 26, weight: .medium)
         ]
         
         let connectionAttributes = [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .regular)
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .regular)
         ]
         
         let quoteText = quote?.quote ?? ""
@@ -153,4 +153,9 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
         mutableAttributedString.append(thirdAttributedString)
         return mutableAttributedString
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }
