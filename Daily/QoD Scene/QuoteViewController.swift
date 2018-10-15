@@ -36,7 +36,11 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
         let parameters = QuoteEndpointParameters(category: category?.key ?? "inspire")
         requestController.requestQuote(with: parameters) { [weak self] error, quote in
             
-            self?.quote = quote
+            guard let weakSelf = self else { 
+                return 
+            }
+                                      
+            weakSelf.quote = quote
         
             DispatchQueue.main.async {
                 let urlString = "https://picsum.photos/800/?random"
@@ -45,23 +49,23 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
                 }
                 
                 UIView.animate(withDuration: 0.2) {
-                    self?.quoteLabel.alpha = 0
+                    weakSelf.quoteLabel.alpha = 0
                 }
                 
                 let processor = BlurImageProcessor(blurRadius: 4) >> RoundCornerImageProcessor(cornerRadius: 0)
-                let image = self?.placeholderImage ?? UIImage()
+                let image = weakSelf.placeholderImage ?? UIImage()
                 
                 let options: KingfisherOptionsInfo = [.forceRefresh,.transition(.fade(0.2)),.processor(processor)]
-                self?.backgroundImageView.kf.indicatorType = .activity
-                self?.backgroundImageView.kf.setImage(with: url, placeholder: image, options: options) { image, _, _, _ in
+                weakSelf.backgroundImageView.kf.indicatorType = .activity
+                weakSelf.backgroundImageView.kf.setImage(with: url, placeholder: image, options: options) { image, _, _, _ in
                  
-                    self?.placeholderImage = image
+                    weakSelf.placeholderImage = image
                     
                     UIView.animate(withDuration: 0.2) {
-                        self?.quoteLabel.alpha = 1
+                        weakSelf.quoteLabel.alpha = 1
                     }
-                    self?.quoteLabel.attributedText = self?.attributedString(from: quote)
-                    self?.speak(quote: quote)
+                    weakSelf.quoteLabel.attributedText = weakSelf.attributedString(from: quote)
+                    weakSelf.speak(quote: quote)
                 }
             }
         }
