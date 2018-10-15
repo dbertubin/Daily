@@ -73,8 +73,8 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
     
     @IBAction func onShare(_ sender: UIButton) {
         sender.isSelected = sender.isSelected == false ? true : false
-        
-        try? AVAudioSession.sharedInstance().setCategory(convertFromAVAudioSessionCategory(AVAudioSession.Category.playback))
+                
+        try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(.playback)), mode: .default, options: .defaultToSpeaker)
         try? AVAudioSession.sharedInstance().setActive(sender.isSelected)
         
         sender.tintColor = sender.isSelected ? .white : .lightGray
