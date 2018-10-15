@@ -15,14 +15,14 @@ class QuotesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 375
-        tableView.rowHeight = UITableViewAutomaticDimension;
+        tableView.rowHeight = UITableViewAutomaticDimension
        reloadData()
     }
 
     private var quotes = [Quote]() {
         didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            DispatchQueue.main.async { [weak self] in 
+                self?.tableView.reloadData()
             }
         }
     }
