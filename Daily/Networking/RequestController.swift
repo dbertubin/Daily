@@ -22,19 +22,22 @@ class RequestController {
         return session
     }
     
+    //FIXME: Add throws
     func request(_ request: Request,  completion: @escaping (_ error: Error?, _ data: Data?) -> Void) {
         guard let request = request.urlRequest() else {
             return
         }
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            //FIXME: Add throws
             guard error == nil else {
                 completion(error, .none)
                 return
             }
             
-            let statusCode = (response as! HTTPURLResponse).statusCode
-            print("URL Session Task Succeeded: HTTP \(statusCode)")
+            //FIXME: Handle Error codes
+            //let statusCode = (response as! HTTPURLResponse).statusCode
             
+            //FIXME: Add throws
             guard let data = data else {
                 print("Error: No data to decode")
                 return
@@ -46,33 +49,39 @@ class RequestController {
         session.finishTasksAndInvalidate()
     }
 }
-
 extension RequestController {
+    //FIXME: Add throws
     func requestQuote(with parameters: QuoteEndpointParameters? = nil, completion: @escaping (_ error: Error?, _ quote: Quote?) -> Void) {
         
         let tssRequest = Request(for: QuoteEndpoint(parameters: parameters))
         
         request(tssRequest) { error, data in
+            //FIXME: Add throws
             guard error == nil else {
                 completion(error, nil)
                 return
             }
+            //FIXME: Add throws
             guard let data = data else {
                 completion(nil, nil)
                 return
             }
-            
+            //Possibly move this to a parser
+            //FIXME: Add throws
             guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
                 return
             }
-            
+            //FIXME: Add throws
             guard let contentsJson = json?["contents"] else {
                 return
             }
+            
+            //FIXME: Add throws
             guard let contentsData = try? JSONSerialization.data(withJSONObject: contentsJson as Any, options: []) as Data else {
                 return
             }
             
+            //FIXME: Add throws
             guard let response = try? JSONDecoder().decode(Quote.self, from: contentsData) else {
                 print("Error: Couldn't decode data into Blog")
                 return
