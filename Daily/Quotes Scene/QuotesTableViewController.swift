@@ -37,7 +37,6 @@ extension QuotesTableViewController {
             return
         }
         title = topic.value
-        
     }
 }
 
