@@ -1,23 +1,28 @@
-# .circleci/config.yml
+.circleci/config
+
 version: 2
 jobs:
-  build-and-test:
+  build-with-iphone-x:
     macos:
-      xcode: "10.0.0"
-    working_directory: Users⁩/⁨petrockz⁩/⁨Github⁩/⁨Daily⁩
-    environment:
-      FL_OUTPUT_DIR: output
-
+        xcode: "10.0.0"
+      
     steps:
-      - checkout
-      - run:
-          name: Build and run tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone 8
-            SCAN_SCHEME: WebTests
+        - checkout
+        - run:
+            name: Setting Ruby Version && ruby -v
+            command: echo "2.4" > ~/.ruby-version
+                
+        - run:
+            name: xcodebuild buil test
+            command: set -o pipefail && xcodebuild -project 'DailyTests.xcodeproj' -scheme 'DailyTests' clean build test -destination 'platform=iOS Simulator,name=iPhone x,OS=latest' CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= PROVISIONING_PROFILE= | tee $HOME/xcode_raw.log | xcpretty --color --report junit --output results.xml
+                
+        - store_test_results:
+            path: results.xml
+        - store_artifacts:
+            path: xcode_raw.log
+            destination: xcode_raw
 workflows:
   version: 2
-  build-and-test:
+  build-with-different-simulators:
     jobs:
-      - build-and-test
+      - build-with-iphone-x
