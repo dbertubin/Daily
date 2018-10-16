@@ -9,7 +9,7 @@ There are a few notable things about this repo:
 3. Requires Kingfisher
 
 ### Carthage
-Carthage is a decentralized dependency manager for Cocoa application. To install carthage, you can use Homebrew.
+Carthage is a decentralized dependency manager for Cocoa applications. To install carthage, you can use Homebrew.
 ```
 $ brew update
 $ brew install carthage
