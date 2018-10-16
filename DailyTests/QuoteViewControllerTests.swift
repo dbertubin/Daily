@@ -31,5 +31,11 @@ class QuoteViewControllerTests: XCTestCase {
         let attributedString = viewControllerUnderTest.attributedString(from: quote)
         XCTAssertEqual(attributedString.string, "Every Developer Ever\nonce said...\nTo test or not to test")
     }
+    
+    func testSpeakQuote() {
+        let quote = Quote(quote: "To test or not to test", author: "Every Developer Ever")
+        let utterance = viewControllerUnderTest.speak(quote: quote)
+        XCTAssertEqual(utterance.speechString, "Every Developer Ever once said...To test or not to test.")
+    }
 
 }
