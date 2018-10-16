@@ -15,6 +15,7 @@ class QuoteViewControllerTests: XCTestCase {
     let quote = Quote(quote: "To test or not to test", author: "Every Developer Ever")
     
     var viewControllerUnderTest: QuoteViewController! = nil
+    
     override func setUp() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         viewControllerUnderTest = storyboard.instantiateViewController(withIdentifier: "QuoteViewController") as? QuoteViewController
