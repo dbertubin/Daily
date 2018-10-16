@@ -79,7 +79,6 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
     
     @IBAction func onShare(_ sender: UIButton) {
         sender.isSelected = sender.isSelected == false ? true : false
-                
         try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(.playback)), mode: .default, options: .defaultToSpeaker)
         try? AVAudioSession.sharedInstance().setActive(sender.isSelected)
         
@@ -87,11 +86,10 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
         
         guard sender.isSelected else {
             if speechSynthesizer.isSpeaking {
-                speechSynthesizer.stopSpeaking(at: .immediate)
+                speechSynthesizer.stopSpeaking(at: .word)
             }
             return
         }
-        
         _ = speak(quote: quote)
     }
     
