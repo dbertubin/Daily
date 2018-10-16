@@ -11,6 +11,7 @@ import Kingfisher
 import AVFoundation
 
 class QuoteViewController: UIViewController, RequestControllerRequired {
+    
     var requestController = RequestController()
 
     @IBOutlet weak var quoteLabel: UILabel!
@@ -30,10 +31,11 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
     
     var quote: Quote?
     var category: Category?
-    var quoteAndAuthorText: String?
+    
     private func reloadData() {
         
         let parameters = QuoteEndpointParameters(category: category?.key ?? "inspire")
+        
         requestController.requestQuote(with: parameters) { [weak self] error, quote in
             
             guard let weakSelf = self else { 
@@ -65,7 +67,11 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
                         weakSelf.quoteLabel.alpha = 1
                     }
                     weakSelf.quoteLabel.attributedText = weakSelf.attributedString(from: quote)
-                    weakSelf.speak(quote: quote)
+                    
+                    guard weakSelf.speakerButton.isSelected else {
+                        return
+                    }
+                    _ = weakSelf.speak(quote: quote)
                 }
             }
         }
@@ -86,13 +92,12 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
             return
         }
         
-        speak(quote: quote)
+        _ = speak(quote: quote)
     }
     
     
     @IBAction func onMore(_ sender: Any) {
-        
-        guard let quoteAndAuthorText = quoteAndAuthorText else {
+        guard let quoteAndAuthorText = quoteAndAuthorText(from: quote) else {
             return
         }
         let items = ["\(quoteAndAuthorText) Shared with Someone Once Said: Daily"]
@@ -100,18 +105,13 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
         present(ac, animated: true)
     }
     
-    private func speak(quote: Quote?) {
-        
+    func speak(quote: Quote?) -> AVSpeechUtterance {
         if speechSynthesizer.isSpeaking {
             speechSynthesizer.stopSpeaking(at: .word)
         }
-        
-        guard speakerButton.isSelected else {
-            return
-        }
-        
-        let utterance = AVSpeechUtterance(string: quoteAndAuthorText ?? "Content unreadable.")
+        let utterance = AVSpeechUtterance(string: quoteAndAuthorText(from: quote) ?? "Content unreadable.")
         speechSynthesizer.speak(utterance)
+        return utterance
     }
     
     
@@ -122,13 +122,20 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
 
     }
     
+    
+    func quoteAndAuthorText(from quote: Quote?) -> String? {
+        guard let quote = quote else {
+            return nil
+        }
+        let text = "\(quote.author ) once said...\(quote.quote )."
+        return text
+    }
+    
     func attributedString(from quote: Quote?) -> NSAttributedString {
         
-        quoteAndAuthorText = "\(quote?.author ?? "") once said...\(quote?.quote ?? "")."
-
         let quoteAttributes = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 34, weight: .bold),
-            ]
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 34, weight: .bold)
+        ]
         
         let authorAttributes = [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 26, weight: .medium)
@@ -142,11 +149,8 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
         let authorText = "\(quote?.author ?? "Unknown")\n"
         let connectionText = "once said...\n"
         
-        
         let mutableAttributedString = NSMutableAttributedString(string: authorText, attributes: authorAttributes)
-    
         let secondAttributedString = NSAttributedString(string: connectionText, attributes: connectionAttributes)
-        
         let thirdAttributedString = NSAttributedString(string: quoteText, attributes: quoteAttributes)
         
         mutableAttributedString.append(secondAttributedString)
