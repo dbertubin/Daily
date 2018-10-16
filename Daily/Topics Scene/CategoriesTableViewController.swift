@@ -25,7 +25,7 @@ class CategoriesTableViewController: UITableViewController {
 
     }
     
-    var categories = [Category]() {
+    var categories = [QuoteCategory]() {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -41,7 +41,7 @@ class CategoriesTableViewController: UITableViewController {
                 return
             }
             
-            self.categories = categories ?? [Category]()
+            self.categories = categories ?? [QuoteCategory]()
         }
         
     }
@@ -61,7 +61,7 @@ extension CategoriesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TopicTableViewCell", for: indexPath) as! TopicTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath) as! CategoryTableViewCell
         cell.configure(with: categories[indexPath.row])
         return cell
     }

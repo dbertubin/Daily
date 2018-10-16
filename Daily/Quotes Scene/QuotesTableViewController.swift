@@ -27,16 +27,16 @@ class QuotesTableViewController: UITableViewController {
         }
     }
 
-    var topic: Category?
+    var quoteCategory: QuoteCategory?
     
 }
 
 extension QuotesTableViewController {
     private func reloadData() {
-        guard let topic = self.topic else {
+        guard let quoteCategory = self.quoteCategory else {
             return
         }
-        title = topic.value
+        title = quoteCategory.value
     }
 }
 

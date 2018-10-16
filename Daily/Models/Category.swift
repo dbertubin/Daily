@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct Category: Codable {
+struct QuoteCategory: Codable {
     
     var key: String
     var value: String
