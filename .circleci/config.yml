@@ -10,7 +10,7 @@ jobs:
         - checkout                
         - run:
             name: xcodebuild buil test
-            command: set -o pipefail && xcodebuild -project 'DailyTests.xcodeproj' -scheme 'DailyTests' clean build test -destination 'platform=iOS Simulator,name=iPhone x,OS=latest' CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= PROVISIONING_PROFILE= | tee $HOME/xcode_raw.log | xcpretty --color --report junit --output results.xml
+            command: set -o pipefail && xcodebuild -project 'Daily.xcodeproj' -scheme 'DailyTests' clean build test -destination 'platform=iOS Simulator,name=iPhone x,OS=latest' CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= PROVISIONING_PROFILE= | tee $HOME/xcode_raw.log | xcpretty --color --report junit --output results.xml
                 
         - store_test_results:
             path: results.xml
