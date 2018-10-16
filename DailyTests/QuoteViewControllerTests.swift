@@ -12,6 +12,8 @@ import UIKit
 
 class QuoteViewControllerTests: XCTestCase {
 
+    let quote = Quote(quote: "To test or not to test", author: "Every Developer Ever")
+    
     var viewControllerUnderTest: QuoteViewController! = nil
     override func setUp() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -27,15 +29,17 @@ class QuoteViewControllerTests: XCTestCase {
     }
     
     func testAttributedStringFromQuote() {
-        let quote = Quote(quote: "To test or not to test", author: "Every Developer Ever")
-        let attributedString = viewControllerUnderTest.attributedString(from: quote)
-        XCTAssertEqual(attributedString.string, "Every Developer Ever\nonce said...\nTo test or not to test")
+        let attributedStringUnderTest = viewControllerUnderTest.attributedString(from: quote)
+        XCTAssertEqual(attributedStringUnderTest.string, "Every Developer Ever\nonce said...\nTo test or not to test")
     }
     
     func testSpeakQuote() {
-        let quote = Quote(quote: "To test or not to test", author: "Every Developer Ever")
-        let utterance = viewControllerUnderTest.speak(quote: quote)
-        XCTAssertEqual(utterance.speechString, "Every Developer Ever once said...To test or not to test.")
+        let utteranceUnderTest = viewControllerUnderTest.speak(quote: quote)
+        XCTAssertEqual(utteranceUnderTest.speechString, "Every Developer Ever once said...To test or not to test.")
     }
 
+    func testQuoteAndAuthorText() {
+        let textUnderTest = viewControllerUnderTest.quoteAndAuthorText(from: quote)
+        XCTAssertEqual(textUnderTest, "Every Developer Ever once said...To test or not to test.")
+    }
 }
