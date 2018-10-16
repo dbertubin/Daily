@@ -92,7 +92,7 @@ extension RequestController {
 }
 
 extension RequestController {
-    func requestCategories(with parameters: CategoryEndpointParameters? = nil, completion: @escaping (_ error: Error?, _ categories: [Category]?) -> Void) {
+    func requestCategories(with parameters: CategoryEndpointParameters? = nil, completion: @escaping (_ error: Error?, _ categories: [QuoteCategory]?) -> Void) {
         
         let tssRequest = Request(for: CategoryEndpoint(parameters: parameters))
         
@@ -120,7 +120,7 @@ extension RequestController {
             }
             
             let response = categoryJson.map { key, value in
-                Category(key: key, value: value)
+                QuoteCategory(key: key, value: value)
             }
             
             completion(nil, response)

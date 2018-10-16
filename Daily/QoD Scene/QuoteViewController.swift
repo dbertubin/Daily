@@ -30,7 +30,7 @@ class QuoteViewController: UIViewController, RequestControllerRequired {
     }
     
     var quote: Quote?
-    var category: Category?
+    var category: QuoteCategory?
     
     private func reloadData() {
         
