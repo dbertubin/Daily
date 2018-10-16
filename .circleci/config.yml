@@ -1,4 +1,4 @@
-#example .circleci/config
+#build-with-iphone-x .circleci/config
 version: 2
 jobs:
   build-with-iphone-x:
