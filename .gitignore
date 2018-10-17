@@ -67,11 +67,6 @@ xcuserdata/
 timeline.xctimeline
 playground.xcworkspace
 
-
-# Carthage
-Carthage/Build
-
-
 ### Xcode Patch ###
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
