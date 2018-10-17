@@ -4,7 +4,11 @@ jobs:
   build-with-iphone-x:
     macos:
         xcode: "10.0.0"
-      
+    dependencies:
+        override:
+          - bin/bootstrap-if-needed
+    cache_directories:
+        - "Carthage"  
     steps:
         - checkout                
         - run:
