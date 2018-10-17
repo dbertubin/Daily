@@ -8,20 +8,15 @@
 
 import UIKit
 import Kingfisher
-class TopicTableViewCell: UITableViewCell {
+class CategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }
 
-extension TopicTableViewCell {
-    func configure(with category: Category) {
+extension CategoryTableViewCell {
+    func configure(with category: QuoteCategory) {
         titleLabel.text = category.value
         backgroundImageView.backgroundColor = .lightGray
 
