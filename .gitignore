@@ -3,4 +3,4 @@
 build/
 xcuserdata/*
 *.xccheckout
-
+*.xcbkptlist
